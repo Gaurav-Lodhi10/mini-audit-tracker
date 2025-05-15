@@ -1,14 +1,13 @@
 // === /app/page.tsx ===
 'use client';
 import React, { useState } from 'react';
-import ObservationForm from '../components/ObservationForm';
-import ObservationTable from '../components/ObservationTable';
-import Chart from '../components/Chart';
-import ObservationFilters from '../components/ObservationFilters';
-import { initialData } from '../utils/data';
-import { useLocalStorage } from '../hooks/useLocalStorage';
-import { Observation } from '../types';
-
+import ObservationForm from '@/components/ObservationForm';
+import ObservationTable from '@/components/ObservationTable';
+import Chart from '@/components/Chart';
+import ObservationFilters from '@/components/ObservationFilters';
+import { initialData } from '@/utils/data';
+import { useLocalStorage } from '@/hooks/useLocalStorage'
+import { Observation } from '@/types';
 const Page: React.FC = () => {
     const [observations, setObservations] = useLocalStorage<Observation[]>('observations', initialData);
     const [statusFilter, setStatusFilter] = useState('');
