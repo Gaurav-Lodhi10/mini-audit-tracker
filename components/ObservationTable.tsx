@@ -1,11 +1,7 @@
 import React from 'react';
-import { Observation } from '../types';
+import { Observation } from '@/types';
 import StatusBadge from './StatusBadge';
 import SeverityTag from './SeverityTag';
-import { Observation } from '@/types';
-import StatusBadge from './StatusBadge'
-import SeverityTag from './SeverityTag';
-
 
 const ObservationTable: React.FC<{ observations: Observation[] }> = ({ observations }) => (
     <table className="w-full mt-6 border">
