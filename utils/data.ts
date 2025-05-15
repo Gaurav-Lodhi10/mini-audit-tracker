@@ -8,12 +8,4 @@ export const initialData: Observation[] = [
         severity: 'High',
         status: 'Open',
     },
-    {
-        id: '2',
-        title: 'Observation 2',
-        description: 'This is a test observation 2.',
-        severity: 'Low',
-        status: 'Open',
-        
-    },
 ];

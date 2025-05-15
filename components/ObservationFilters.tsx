@@ -8,7 +8,7 @@ interface Props {
 
 const ObservationFilters: React.FC<Props> = ({ statusFilter, setStatusFilter }) => (
     <div className="my-4">
-        <select value={statusFilter} onChange={e => setStatusFilter(e.target.value)} className="p-2 border">
+        <select value={statusFilter} onChange={e => setStatusFilter(e.target.value)} className="p-2 border bg-gray-800 ">
             <option value="">All</option>
             <option value="Open">Open</option>
             <option value="In Progress">In Progress</option>
