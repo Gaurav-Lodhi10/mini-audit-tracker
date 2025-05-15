@@ -6,7 +6,7 @@ import ObservationForm from '@/components/ObservationForm';
 const NewObservationPage = () => {
     const router = useRouter();
 
-    const handleAdd = (data: any) => {
+    const handleAdd = () => {
         // Save to localStorage or API
         alert('Observation created');
         router.push('/');
