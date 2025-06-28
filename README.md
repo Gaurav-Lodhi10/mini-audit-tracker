@@ -1,36 +1,199 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔍 Mini Audit Tracker
 
-## Getting Started
+A modern, responsive web application for tracking and managing audit observations with real-time data visualization and local storage persistence.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15.3.2-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-19.0.0-blue?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- 📝 **Create & Manage Observations** - Add new audit observations with title, description, severity, and status
+- 📊 **Real-time Data Visualization** - Interactive charts showing observation status distribution
+- 🔍 **Smart Filtering** - Filter observations by status (Open, In Progress, Closed)
+- 💾 **Local Storage Persistence** - Data automatically saves to browser localStorage
+- 🎨 **Modern Dark UI** - Beautiful, responsive design with dark theme
+- 📱 **Mobile Responsive** - Works seamlessly on desktop, tablet, and mobile devices
+- ⚡ **Fast Performance** - Built with Next.js 15 and React 19 for optimal performance
+- 🔒 **Type Safety** - Full TypeScript implementation for better development experience
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/mini-audit-tracker.git
+   cd mini-audit-tracker
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the application
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) - React framework with App Router
+- **Frontend**: [React 19](https://react.dev/) - UI library
+- **Language**: [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) - Utility-first CSS framework
+- **Charts**: [Recharts](https://recharts.org/) - Composable charting library
+- **State Management**: React Hooks with custom localStorage hook
+- **Development**: ESLint, PostCSS
+
+## 📁 Project Structure
+
+```
+mini-audit-tracker/
+├── 📁 app/                    # Next.js App Router
+│   ├── 📄 page.tsx           # Main application page
+│   ├── 📄 layout.tsx         # Root layout component
+│   ├── 📄 globals.css        # Global styles
+│   └── 📁 observations/      # Additional routes
+├── 📁 components/            # React components
+│   ├── 📄 ObservationForm.tsx    # Form for creating observations
+│   ├── 📄 ObservationTable.tsx   # Table displaying observations
+│   ├── 📄 Chart.tsx              # Data visualization component
+│   ├── 📄 ObservationFilters.tsx # Status filtering component
+│   ├── 📄 SeverityTag.tsx        # Severity indicator component
+│   └── 📄 StatusBadge.tsx        # Status indicator component
+├── 📁 hooks/                 # Custom React hooks
+│   └── 📄 useLocalStorage.ts     # Local storage hook
+├── 📁 types/                 # TypeScript type definitions
+│   └── 📄 index.ts               # Observation interface
+├── 📁 utils/                 # Utility functions
+│   └── 📄 data.ts                # Initial data and utilities
+└── 📁 public/               # Static assets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Usage
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Creating an Observation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Fill out the form** with observation details:
+   - **Title**: Brief description of the observation
+   - **Description**: Detailed explanation
+   - **Severity**: Choose from Low, Medium, or High
+   - **Status**: Select Open, In Progress, or Closed
 
-## Learn More
+2. **Click "Add Observation"** to save
 
-To learn more about Next.js, take a look at the following resources:
+### Managing Observations
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **View all observations** in the responsive table
+- **Filter by status** using the dropdown filter
+- **Monitor progress** with the interactive chart
+- **Data persists** automatically in your browser
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Data Structure
 
-## Deploy on Vercel
+Each observation contains:
+```typescript
+interface Observation {
+    id: string;           // Unique identifier
+    title: string;        // Observation title
+    description: string;  // Detailed description
+    severity: 'Low' | 'Medium' | 'High';
+    status: 'Open' | 'In Progress' | 'Closed';
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎨 UI Components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Severity Levels
+- 🟢 **Low** - Green indicator
+- 🟡 **Medium** - Yellow indicator  
+- 🔴 **High** - Red indicator
+
+### Status Badges
+- 🟢 **Open** - Green badge
+- 🟡 **In Progress** - Yellow badge
+- 🔴 **Closed** - Red badge
+
+## 📊 Features in Detail
+
+### Data Visualization
+- **Bar Chart**: Shows count of observations by status
+- **Real-time Updates**: Chart updates automatically when data changes
+- **Responsive Design**: Adapts to different screen sizes
+
+### Data Persistence
+- **Local Storage**: All data saved to browser localStorage
+- **Automatic Sync**: Changes persist across browser sessions
+- **No Server Required**: Works completely client-side
+
+### Filtering System
+- **Status-based Filtering**: Filter by Open, In Progress, or Closed
+- **Real-time Filtering**: Results update instantly
+- **Clear All Option**: Reset filters to show all observations
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+1. Push your code to GitHub
+2. Connect your repository to [Vercel](https://vercel.com)
+3. Deploy automatically on every push
+
+### Other Platforms
+The app can be deployed to any platform that supports Next.js:
+- Netlify
+- Railway
+- DigitalOcean App Platform
+- AWS Amplify
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [Next.js](https://nextjs.org/) for the amazing React framework
+- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
+- [Recharts](https://recharts.org/) for the charting library
+- [React](https://react.dev/) for the UI library
+
+## 📞 Support
+
+If you have any questions or need help, please:
+- Open an issue on GitHub
+- Check the documentation
+- Reach out to the maintainers
+
+---
+
+⭐ **Star this repository if you found it helpful!**
